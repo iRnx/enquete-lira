@@ -24,10 +24,25 @@ def votar(request, question_id):
 
     pergunta = get_object_or_404(Pergunta, pk=question_id)
     print(request.POST)
-    
+
+
+    teste = request.POST.get('teste')
+    # print(teste)
+
+    resp = Resposta.objects.filter(pergunta=pergunta).filter(texto_escolha__icontains=teste)
+    print(resp, '11111111111111111111')
+
+    if resp.exists():
+        print('Você acertou')
+    else:
+        print('vc errou')
+
+
+
+      
     try:
-        select_choice = pergunta.resposta_set.get(pk=request.POST['resposta'])
-        print(select_choice, '5555555555555555555555555555555555555555555555555')
+        select_choice = pergunta.resposta_set.get(pk=request.POST['respoosta'])
+        # print(select_choice, '5555555555555555555555555555555555555555555555555')
     except KeyError:
         return render(request, 'polls/vote.html', {'pergunta': pergunta, 'error_message': 'deu erro fdp'})
 
