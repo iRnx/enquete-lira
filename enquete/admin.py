@@ -1,10 +1,21 @@
 from django.contrib import admin
-from .models import Pergunta, Resposta
+from .models import Pergunta, Resposta, Categoria, Sub_Categoria
+
+
+
+@admin.register(Sub_Categoria)
+class Sub_CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('nome_sub_categoria',)
+
+
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('nome_categoria',)
+
 
 @admin.register(Pergunta)
 class PerguntaAdmin(admin.ModelAdmin):
     list_display = ('texto_pergunta', 'data_publicacao')
-    
 
 
 @admin.register(Resposta)
