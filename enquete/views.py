@@ -29,7 +29,7 @@ def votar(request, question_id):
     teste = request.POST.get('teste')
     # print(teste)
 
-    resp = Resposta.objects.filter(pergunta=pergunta).filter(texto_escolha__icontains=teste)
+    resp = Resposta.objects.filter(pergunta=pergunta).filter(texto_escolha=teste)
     print(resp, '11111111111111111111')
 
     if resp.exists():
