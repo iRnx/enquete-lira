@@ -15,9 +15,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Pergunta)
 class PerguntaAdmin(admin.ModelAdmin):
-    list_display = ('texto_pergunta', 'data_publicacao')
+    list_display = ('texto_pergunta', 'sub_categoria', 'data_publicacao')
 
 
 @admin.register(Resposta)
 class RespostaAdmin(admin.ModelAdmin):
-    list_display = ('pergunta', 'texto_escolha', 'votar')
+    list_display = ('pergunta', 'resposta_pergunta', 'votar')

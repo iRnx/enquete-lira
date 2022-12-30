@@ -13,7 +13,7 @@
     <ul>
         {% for escolha in resultados.resposta_set.all %}
 
-            <li>{{ escolha.texto_escolha }} -- {{ escolha.votar }} vote{{ escolha.votar|pluralize }}</li>
+            <li>{{ escolha.resposta_pergunta }} -- {{ escolha.votar }} vote{{ escolha.votar|pluralize }}</li>
             
         {% endfor %}
     </ul>

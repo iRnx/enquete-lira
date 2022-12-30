@@ -19,7 +19,7 @@
             {% for escolha in pergunta.resposta_set.all %}
 
                 <input type="radio" name="resposta" id="escolha{{ forloop.counter }}" value="{{ escolha.id }}">
-                <label for="escolha{{ forloop.counter }}">{{ escolha.texto_escolha }}</label><br>
+                <label for="escolha{{ forloop.counter }}">{{ escolha.resposta_pergunta }}</label><br>
 
             {% endfor %}
 

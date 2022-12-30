@@ -18,7 +18,7 @@ class Categoria(models.Model):
 
 class Pergunta(models.Model):
     texto_pergunta = models.CharField(max_length=500)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    sub_categoria = models.ForeignKey(Sub_Categoria, on_delete=models.CASCADE)
     data_publicacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
@@ -27,8 +27,9 @@ class Pergunta(models.Model):
 
 class Resposta(models.Model):
     pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
-    texto_escolha = models.CharField(max_length=500)
+    resposta_pergunta = models.CharField(max_length=500)
     votar = models.IntegerField(default=0)
 
     def __str__(self) -> str:
-        return self.texto_escolha
+        return self.resposta_pergunta
+

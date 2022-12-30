@@ -1,0 +1,5 @@
+<h1>Perguntas associoadas a categoria ({{ categoria }})</h1>
+
+{% for categoria in sub_categoria %}
+    <a href="{% url 'perguntas_sub_categorias' categoria.id %}">{{ categoria }}</p></a>
+{% endfor %}
