@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+   
+{% block 'nav' %}
+
+  {% include 'partials/nav-bar.html' %}
+
+{% endblock %}
+
+
+{% block 'main' %}
+  
+  <div class="text-center border mt-5 shadow p-3 mb-5 bg-body-tertiary rounded col-6 pt-5 pb-5">
+    <form method="POST" action="{% url 'pergunta_resposta' perguntas.id %}">
+
+      {% csrf_token %}
+          
+      {% include 'partials/alert.html' %}
+          
+      <fieldset>
+          <legend><h1>{{ perguntas.texto_pergunta }}</h1></legend>
+          <input type="text" name="resposta" id="">
+          
+      </fieldset>
+
+      <input type="submit" value="Enviar">
+
+      </form>
+  </div>
+  
+{% endblock %}  
+
+        

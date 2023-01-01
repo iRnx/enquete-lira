@@ -1,8 +1,35 @@
-<h1>perguntas_sub_categorias</h1>
+{% extends 'base.html' %}
+
+{% load filtros %}
+
+{% block 'nav' %}
+
+  {% include 'partials/nav-bar.html' %}
+
+{% endblock %}
 
 
-{% for sub in pergunta %}
 
-    <p>{{ sub }}</p>
+{% block 'main' %}
 
-{% endfor %}
+  <div class="col-10">
+
+    <h1>Selecione uma Pergunta</h1>
+    <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Perguntas</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for id, sub in perguntas|enumerate %}
+          <tr>
+            <th scope="row">{{ id }}</th>
+            <td><a href="{% url 'pergunta_resposta' sub.id %}">{{ sub }}</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+  </div> 
+{% endblock %}

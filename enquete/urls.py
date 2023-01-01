@@ -4,8 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:question_id>/resultados/', views.resultados, name='resultados'),
-    path('<int:question_id>/votar/', views.votar, name='votar'),
-    path('sub-categorias/<int:id>', views.trazer_sub_categorias, name='sub_categoria'),
-    path('perguntas_sub_categorias/<int:id>', views.perguntas_sub_categorias, name='perguntas_sub_categorias')
+    path('resposta/<int:id>', views.pergunta_resposta, name='pergunta_resposta'),
+    path('pergunta_sub_categorias/<int:id>', views.pergunta_sub_categorias, name='pergunta_sub_categorias')
 ]
