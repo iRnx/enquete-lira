@@ -9,20 +9,24 @@
 
 {% block 'main' %}
   
-  <div class="text-center border mt-5 shadow p-3 mb-5 bg-body-tertiary rounded col-6 pt-5 pb-5">
-    <form method="POST" action="{% url 'pergunta_resposta' perguntas.id %}">
+  <div class="text-center border mt-5 shadow p-3 mb-5 bg-body-tertiary rounded col-8 pt-5 pb-5">
+    <form method="POST" action="{% url 'pergunta_resposta' pergunta.id %}">
 
       {% csrf_token %}
           
-      {% include 'partials/alert.html' %}
-          
       <fieldset>
-          <legend><h1>{{ perguntas.texto_pergunta }}</h1></legend>
-          <input type="text" name="resposta" id="">
+          <legend><p>{{ pergunta.texto_pergunta }}</p></legend>
+          
+          <p class="mb-2">{{ form.resposta_pergunta }}</p>
+          {% include 'partials/alert.html' %}
           
       </fieldset>
 
-      <input type="submit" value="Enviar">
+      <div class="d-flex justify-content-between mt-4">
+        <a href="#">Pergunta anterior</a>
+        <button type="submit" class="btn btn-success">Enviar</button>
+        <a href="#">Próxima pergunta</a>
+      </div>
 
       </form>
   </div>

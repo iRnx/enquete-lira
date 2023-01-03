@@ -35,6 +35,22 @@
              
               </li>
             {% endfor %}
+
+          
+            <!-- Trazendo todas as perguntas que vem da index -->
+            {% for todas_as_perguntas in lista_perguntass %}
+              <p><a href="{% url 'pergunta_resposta' todas_as_perguntas.id %}">{{ todas_as_perguntas }}</p></a>
+            {% endfor %}
+
+          
+            <!-- Trazer as perguntas específicas da sub categoria -->
+            {% for sub in perguntass_sub_categorias %}
+
+              <a href="{% url 'pergunta_resposta' sub.id %}" class="text-white text-decoration-none">{{ sub }}</a>
+
+            {% endfor %}
+          
+
         
         </div>
       </div>
